@@ -393,7 +393,7 @@ var doingResponse;
 var currBlock;
 var blocks;
 var sequence;
-var trialSequence;
+var testSequence;
 var trialComponents;
 function trialRoutineBegin() {
   //------Prepare to start Routine 'trial'-------
@@ -454,7 +454,7 @@ function trialRoutineBegin() {
   }
   
   sequence = ["blk1", "blk2", "blk3", "blk4", "blk5"];
-  trialSequence = [];
+  testSequence = [];
   // keep track of which components have finished
   trialComponents = [];
   trialComponents.push(blk1);
@@ -562,7 +562,7 @@ function trialRoutineEachFrame() {
           doingResponse = true;  // no more blocks to show
       } else {
           let currBlockName = sequence[blkIndex];
-          trialSequence.push(currBlockName);
+          testSequence.push(currBlockName);
           currBlock = blocks[currBlockName];
           currBlock.fillColor = new util.Color('red');
           currBlock.lineColor = new util.Color('red');
@@ -628,7 +628,7 @@ function trialRoutineEnd() {
   psychoJS.experiment.addData('mouse.time', mouse.time);
   psychoJS.experiment.addData('mouse.clicked_name', mouse.clicked_name);
   
-  
+  psychoJS.experiment.addData('testSequence', testSequence);
   // the Routine "trial" was not non-slip safe, so reset the non-slip timer
   routineTimer.reset();
   

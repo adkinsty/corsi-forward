@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v3.0.0b5),
-    on August 13, 2018, at 15:52
+This experiment was created using PsychoPy3 Experiment Builder (v3.0.0b8),
+    on November 29, 2018, at 11:37
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,6 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 
 # Store info about the experiment session
+psychopyVersion = '3.0.0b8'
 expName = 'corsi'  # from the Builder filename that created this script
 expInfo = {'session': '001', 'participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
@@ -33,6 +34,7 @@ if dlg.OK == False:
     core.quit()  # user pressed cancel
 expInfo['date'] = data.getDateStr()  # add a simple timestamp
 expInfo['expName'] = expName
+expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
 filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])
@@ -40,7 +42,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\lpzdb\\Desktop\\discourseExp\\corsi\\corsi_lastrun.py',
+    originPath='C:\\Users\\lpzdb\\pavloviaDemos\\corsi\\corsi_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -125,6 +127,7 @@ blk5 = visual.Rect(
 mouse = event.Mouse(win=win)
 x, y = [None, None]
 mouse.mouseClock = core.Clock()
+
 
 # Initialize components for Routine "thanks"
 thanksClock = core.Clock()
@@ -295,6 +298,26 @@ for thisTrial in trials:
     mouse.time = []
     mouse.clicked_name = []
     gotValidClick = False  # until a click is received
+    # initial state
+    blkIndex = 0
+    nextSwitch = blockDuration
+    doingResponse = False
+    currBlock = None
+    
+    # store blocks as a dictionary (to switch between name/object)
+    blocks = {}
+    blocks['blk1']=blk1
+    blocks['blk2']=blk2
+    blocks['blk3']=blk3
+    blocks['blk4']=blk4
+    blocks['blk5']=blk5
+    
+    # give blocks a new set of random locations
+    for label, block in blocks.items():
+        block.pos = random(2)*0.8-0.4
+        block.color = 'white'
+    
+    
     # keep track of which components have finished
     trialComponents = [blk1, blk2, blk3, blk4, blk5, mouse]
     for thisComponent in trialComponents:
@@ -358,16 +381,35 @@ for thisTrial in trials:
                     x, y = mouse.getPos()
                     mouse.x.append(x)
                     mouse.y.append(y)
+                    buttons = mouse.getPressed()
                     mouse.leftButton.append(buttons[0])
                     mouse.midButton.append(buttons[1])
                     mouse.rightButton.append(buttons[2])
                     mouse.time.append(mouse.mouseClock.getTime())
-                    # check if the mouse was inside our 'clickable' objects
-                    gotValidClick = False;
-                    for obj in [blk1, blk2, blk3, blk4, blk5]:
-                        if obj.contains(mouse):
-                            gotValidClick = True
-                            mouse.clicked_name.append(obj.name)
+        if not doingResponse and t > nextSwitch:
+            if currBlock is not None:
+                #reset color of current block
+                currBlock.color = 'white'
+        
+            # then change current block and make that red
+            if blkIndex >= len(blocks):
+                doingResponse = True  # no more blocks to show
+            else:
+                currBlockName = sequence[blkIndex]
+                currBlock = blocks[currBlockName]
+                currBlock.color = 'red'
+        
+                # track time of this change
+                nextSwitch += blockDuration
+            blkIndex += 1
+        
+        # all clicked?
+        if len(mouse.clicked_name) >= len(sequence):
+            continueRoutine = False
+        
+        # update color of clicked
+        for blockName in mouse.clicked_name:
+            blocks[blockName].color = 'darkgrey'
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -398,6 +440,7 @@ for thisTrial in trials:
     trials.addData('mouse.rightButton', mouse.rightButton)
     trials.addData('mouse.time', mouse.time)
     trials.addData('mouse.clicked_name', mouse.clicked_name)
+    
     # the Routine "trial" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
@@ -456,6 +499,7 @@ while continueRoutine and routineTimer.getTime() > 0:
 for thisComponent in thanksComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+
 # these shouldn't be strictly necessary (should auto-save)
 thisExp.saveAsWideText(filename+'.csv')
 thisExp.saveAsPickle(filename)

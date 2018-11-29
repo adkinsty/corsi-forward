@@ -52,6 +52,7 @@ var frameDur;
 function updateInfo() {
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
   expInfo['expName'] = expName;
+  expInfo['psychopyVersion'] = '3.0.0b8';
 
   // store frame rate of monitor if we can measure it successfully
   expInfo['frameRate'] = psychoJS.window.getActualFrameRate();
@@ -62,7 +63,7 @@ function updateInfo() {
 
   // add info from the URL:
   util.addInfoFromUrl(expInfo);
-  psychoJS.setRedirectUrls('completedURL', 'incompleteURL');
+  
   return Scheduler.Event.NEXT;
 }
 
@@ -108,7 +109,7 @@ function experimentInit() {
   
   // Initialize components for Routine "trial"
   trialClock = new util.Clock();
-  blk1 = new Rect ({
+  blk1 = new visual.Rect ({
     win: psychoJS.window, name: 'blk1',
     units: psychoJS.window.units,
     width: [0.1, 0.1][0], height: [0.1, 0.1][1],
@@ -117,7 +118,7 @@ function experimentInit() {
     fillColor: new util.Color([1, 1, 1]),
     opacity: 1, depth: -1.0, interpolate: true,
   });
-  blk2 = new Rect ({
+  blk2 = new visual.Rect ({
     win: psychoJS.window, name: 'blk2',
     units: psychoJS.window.units,
     width: [0.1, 0.1][0], height: [0.1, 0.1][1],
@@ -126,7 +127,7 @@ function experimentInit() {
     fillColor: new util.Color([1, 1, 1]),
     opacity: 1, depth: -1.0, interpolate: true,
   });
-  blk3 = new Rect ({
+  blk3 = new visual.Rect ({
     win: psychoJS.window, name: 'blk3',
     units: psychoJS.window.units,
     width: [0.1, 0.1][0], height: [0.1, 0.1][1],
@@ -135,7 +136,7 @@ function experimentInit() {
     fillColor: new util.Color([1, 1, 1]),
     opacity: 1, depth: -1.0, interpolate: true,
   });
-  blk4 = new Rect ({
+  blk4 = new visual.Rect ({
     win: psychoJS.window, name: 'blk4',
     units: psychoJS.window.units,
     width: [0.1, 0.1][0], height: [0.1, 0.1][1],
@@ -144,7 +145,7 @@ function experimentInit() {
     fillColor: new util.Color([1, 1, 1]),
     opacity: 1, depth: -1.0, interpolate: true,
   });
-  blk5 = new Rect ({
+  blk5 = new visual.Rect ({
     win: psychoJS.window, name: 'blk5',
     units: psychoJS.window.units,
     width: [0.1, 0.1][0], height: [0.1, 0.1][1],
@@ -411,17 +412,17 @@ function trialRoutineBegin() {
   gotValidClick = false; // until a click is received
   // initial state
   blkIndex = 0;
-  nextSwitch = my.blockDuration;
+  nextSwitch = blockDuration;
   doingResponse = false;
   currBlock = undefined;
   
   // store blocks as a dictionary (to switch between name/object)
   blocks = {};
-  blocks['blk1']=my.blk1;
-  blocks['blk2']=my.blk2;
-  blocks['blk3']=my.blk3;
-  blocks['blk4']=my.blk4;
-  blocks['blk5']=my.blk5;
+  blocks['blk1']=blk1;
+  blocks['blk2']=blk2;
+  blocks['blk3']=blk3;
+  blocks['blk4']=blk4;
+  blocks['blk5']=blk5;
   
   // Create grid of locations with jitter
   let xGrid = [-.3, 0, .3];
@@ -434,13 +435,13 @@ function trialRoutineBegin() {
   }
   
   // Shuffle locations
-  for (let rolls in my.blocks) {
+  for (let rolls in blocks) {
       locations = locations.sort(function() { return 0.5 - Math.random()});
   }
   var counter = 0;  // location index
   
   // give blocks a new set of random locations
-  for (let items in my.blocks) {
+  for (let items in blocks) {
       if (blocks[items].hasOwnProperty('pos')) {
           blocks[items].pos = locations[counter];
           counter = counter + 1; 
@@ -549,7 +550,7 @@ function trialRoutineEachFrame() {
     }
   }
   if (!(doingResponse) && (t > nextSwitch)) {
-      if (typeof my.currBlock != 'undefined') {
+      if (typeof currBlock != 'undefined') {
           // reset color of current block
           currBlock.fillColor =  new Color('white');
           currBlock.lineColor =  new Color('white');
@@ -558,8 +559,8 @@ function trialRoutineEachFrame() {
       if (blkIndex >= Object.keys(blocks).length) {
           doingResponse = true;  // no more blocks to show
       } else {
-          currBlockName = my.sequence[my.blkIndex];
-          currBlock = my.blocks[my.currBlockName];
+          currBlockName = sequence[blkIndex];
+          currBlock = blocks[currBlockName];
           currBlock.fillColor = new Color('red');
           currBlock.lineColor = new Color('red');
           // track time of this change
@@ -574,8 +575,8 @@ function trialRoutineEachFrame() {
   }
   
   // update color of clicked
-  for (let blockName in my.mouse.clicked_name) {
-      for (let eachBlock in my.blocks) {
+  for (let blockName in mouse.clicked_name) {
+      for (let eachBlock in blocks) {
           if (mouse.clicked_name[blockName] == blocks[eachBlock].name) {
               blocks[eachBlock].fillColor = new Color('silver');
               blocks[eachBlock].lineColor = new Color('silver');

@@ -567,7 +567,7 @@ function trialRoutineEachFrame() {
       if (blkIndex >= Object.keys(blocks).length) {
           doingResponse = true;  // no more blocks to show
       } else {
-          currBlockName = sequence[blkIndex];
+          let currBlockName = sequence[blkIndex];
           currBlock = blocks[currBlockName];
           currBlock.fillColor = new util.Color('red');
           currBlock.lineColor = new util.Color('red');

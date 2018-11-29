@@ -628,7 +628,7 @@ function trialRoutineEnd() {
   psychoJS.experiment.addData('mouse.time', mouse.time);
   psychoJS.experiment.addData('mouse.clicked_name', mouse.clicked_name);
   
-  psychoJS.experiment.addData('testSequence', testSequence);
+  
   // the Routine "trial" was not non-slip safe, so reset the non-slip timer
   routineTimer.reset();
   

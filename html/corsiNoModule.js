@@ -391,9 +391,9 @@ var blkIndex;
 var nextSwitch;
 var doingResponse;
 var currBlock;
-var trialSequence;
 var blocks;
 var sequence;
+var trialSequence;
 var trialComponents;
 function trialRoutineBegin() {
   //------Prepare to start Routine 'trial'-------
@@ -416,7 +416,6 @@ function trialRoutineBegin() {
   nextSwitch = blockDuration;
   doingResponse = false;
   currBlock = undefined;
-  trialSequence = [];
   
   // store blocks as a dictionary (to switch between name/object)
   blocks = {};
@@ -455,6 +454,7 @@ function trialRoutineBegin() {
   }
   
   sequence = ["blk1", "blk2", "blk3", "blk4", "blk5"];
+  trialSequence = [];
   // keep track of which components have finished
   trialComponents = [];
   trialComponents.push(blk1);

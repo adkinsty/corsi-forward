@@ -570,8 +570,8 @@ function trialRoutineEachFrame() {
           doingResponse = true;  // no more blocks to show
       } else {
           let currBlockName = sequence[blkIndex];
-          testSequence.push(currBlock.name);
           currBlock = blocks[currBlockName];
+          testSequence.push(currBlock.name);
           currBlock.fillColor = new util.Color('red');
           currBlock.lineColor = new util.Color('red');
           // track time of this change

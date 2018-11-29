@@ -391,6 +391,7 @@ var blkIndex;
 var nextSwitch;
 var doingResponse;
 var currBlock;
+var trialSequence;
 var blocks;
 var sequence;
 var trialComponents;
@@ -415,6 +416,7 @@ function trialRoutineBegin() {
   nextSwitch = blockDuration;
   doingResponse = false;
   currBlock = undefined;
+  trialSequence = [];
   
   // store blocks as a dictionary (to switch between name/object)
   blocks = {};
@@ -452,7 +454,7 @@ function trialRoutineBegin() {
       }
   }
   
-  sequence = ["blk1", "blk2", "blk3", "blk4", "blk5"]
+  sequence = ["blk1", "blk2", "blk3", "blk4", "blk5"];
   // keep track of which components have finished
   trialComponents = [];
   trialComponents.push(blk1);
@@ -560,6 +562,7 @@ function trialRoutineEachFrame() {
           doingResponse = true;  // no more blocks to show
       } else {
           let currBlockName = sequence[blkIndex];
+          trialSequence.push(currBlockName);
           currBlock = blocks[currBlockName];
           currBlock.fillColor = new util.Color('red');
           currBlock.lineColor = new util.Color('red');

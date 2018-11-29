@@ -1,0 +1,2 @@
+sequence,blockDuration,trials.thisRepN,trials.thisTrialN,trials.thisN,trials.thisIndex,mouse.x,mouse.y,mouse.leftButton,mouse.midButton,mouse.rightButton,mouse.time,mouse.clicked_name,session,participant,date,expName,psychopyVersion,frameRate,
+"['blk1', 'blk2', 'blk3', 'blk4', 'blk5']",0.5,0,0,0,0,0.05462962962962963,-0.16574074074074074,1,0,0,0.23452059994451702,blk1,001,,2018_Nov_29_1203,corsi,3.0.0b12,60.39187078818025,

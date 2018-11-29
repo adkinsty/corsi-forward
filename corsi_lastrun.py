@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v3.0.0b8),
-    on November 29, 2018, at 11:37
+    on November 29, 2018, at 11:53
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -55,8 +55,8 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Setup the Window
 win = visual.Window(
-    size=[1800, 1200], fullscr=False, screen=0,
-    allowGUI=True, allowStencil=False,
+    size=[1920, 1080], fullscr=True, screen=0,
+    allowGUI=False, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True,
     units='height')
@@ -386,6 +386,14 @@ for thisTrial in trials:
                     mouse.midButton.append(buttons[1])
                     mouse.rightButton.append(buttons[2])
                     mouse.time.append(mouse.mouseClock.getTime())
+                    # check if the mouse was inside our 'clickable' objects
+                    gotValidClick = False
+                    for obj in [blk1, blk2, blk3, blk4, blk5]:
+                        if obj.contains(mouse):
+                            gotValidClick = True
+                            mouse.clicked_name.append(obj.name)
+                    if gotValidClick:  # abort routine on response
+                        continueRoutine = False
         if not doingResponse and t > nextSwitch:
             if currBlock is not None:
                 #reset color of current block
@@ -433,13 +441,13 @@ for thisTrial in trials:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # store data for trials (TrialHandler)
-    trials.addData('mouse.x', mouse.x)
-    trials.addData('mouse.y', mouse.y)
-    trials.addData('mouse.leftButton', mouse.leftButton)
-    trials.addData('mouse.midButton', mouse.midButton)
-    trials.addData('mouse.rightButton', mouse.rightButton)
-    trials.addData('mouse.time', mouse.time)
-    trials.addData('mouse.clicked_name', mouse.clicked_name)
+    if len(mouse.x): trials.addData('mouse.x', mouse.x[0])
+    if len(mouse.y): trials.addData('mouse.y', mouse.y[0])
+    if len(mouse.leftButton): trials.addData('mouse.leftButton', mouse.leftButton[0])
+    if len(mouse.midButton): trials.addData('mouse.midButton', mouse.midButton[0])
+    if len(mouse.rightButton): trials.addData('mouse.rightButton', mouse.rightButton[0])
+    if len(mouse.time): trials.addData('mouse.time', mouse.time[0])
+    if len(mouse.clicked_name): trials.addData('mouse.clicked_name', mouse.clicked_name[0])
     
     # the Routine "trial" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()

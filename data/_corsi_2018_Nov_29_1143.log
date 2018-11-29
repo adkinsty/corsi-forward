@@ -1,0 +1,89 @@
+3.3207 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([0., 0., 0.]), colorSpace='rgb', fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x132E84F0>, gamma=None, kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x157A1670>, multiSample=False, name='window1', numSamples=2, pos=[60.0, -60.0], screen=0, size=array([1800, 1200]), stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+3.3208 	EXP 	window1: recordFrameIntervals = False
+3.4868 	EXP 	window1: recordFrameIntervals = True
+3.6702 	EXP 	window1: recordFrameIntervals = False
+3.7871 	EXP 	Created instrText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='instrText', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1.5)
+3.8249 	EXP 	Created blank = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='blank', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='+', units='height', win=Window(...), wrapWidth=1)
+3.8282 	EXP 	Created blk1 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=0.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='blk1', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+3.8292 	EXP 	Created blk2 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-1.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='blk2', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+3.8303 	EXP 	Created blk3 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-2.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='blk3', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+3.8313 	EXP 	Created blk4 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-3.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='blk4', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+3.8322 	EXP 	Created blk5 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-4.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='blk5', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+3.8699 	EXP 	Created thanksText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.07, italic=False, languageStyle='LTR', name='thanksText', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='Great! Thanks for your help!\n\nAll done!', units='height', win=Window(...), wrapWidth=1)
+3.8771 	EXP 	instrText: autoDraw = True
+4.1720 	DATA 	Mouse: Left button down, pos=(864,619)
+4.2542 	DATA 	Mouse:  Left button up, pos=(864,619)
+4.6711 	DATA 	Keypress: space
+4.6971 	EXP 	Imported conditions.xlsx as conditions, 1 conditions, 2 params
+4.6976 	EXP 	Created sequence: random, trialTypes=1, nReps=5, seed=None
+4.6981 	EXP 	New trial (rep=0, index=0): OrderedDict([('sequence', ['blk1', 'blk2', 'blk3', 'blk4', 'blk5']), ('blockDuration', 0.5)])
+4.7027 	EXP 	instrText: autoDraw = False
+4.7027 	EXP 	blank: autoDraw = True
+5.1880 	EXP 	blank: autoDraw = False
+5.1880 	EXP 	blk1: pos = array([ 0.36505029, -0.25498233])
+5.1880 	EXP 	blk1: fillColor = 'white'
+5.1880 	EXP 	blk1: lineColor = 'white'
+5.1880 	EXP 	blk1: color = 'white'
+5.1880 	EXP 	blk2: pos = array([-0.32291052,  0.24998798])
+5.1880 	EXP 	blk2: fillColor = 'white'
+5.1880 	EXP 	blk2: lineColor = 'white'
+5.1880 	EXP 	blk2: color = 'white'
+5.1880 	EXP 	blk3: pos = array([ 0.22233897, -0.13830751])
+5.1880 	EXP 	blk3: fillColor = 'white'
+5.1880 	EXP 	blk3: lineColor = 'white'
+5.1880 	EXP 	blk3: color = 'white'
+5.1880 	EXP 	blk4: pos = array([ 0.17751269, -0.09952276])
+5.1880 	EXP 	blk4: fillColor = 'white'
+5.1880 	EXP 	blk4: lineColor = 'white'
+5.1880 	EXP 	blk4: color = 'white'
+5.1880 	EXP 	blk5: pos = array([-0.16649997, -0.08057327])
+5.1880 	EXP 	blk5: fillColor = 'white'
+5.1880 	EXP 	blk5: lineColor = 'white'
+5.1880 	EXP 	blk5: color = 'white'
+5.1880 	EXP 	blk1: autoDraw = True
+5.1880 	EXP 	blk2: autoDraw = True
+5.1880 	EXP 	blk3: autoDraw = True
+5.1880 	EXP 	blk4: autoDraw = True
+5.1880 	EXP 	blk5: autoDraw = True
+5.6885 	EXP 	blk1: fillColor = 'red'
+5.6885 	EXP 	blk1: lineColor = 'red'
+5.6885 	EXP 	blk1: color = 'red'
+5.9560 	DATA 	Mouse: Left button down, pos=(693,519)
+6.1069 	DATA 	Mouse:  Left button up, pos=(693,519)
+6.1890 	EXP 	blk1: fillColor = 'white'
+6.1890 	EXP 	blk1: lineColor = 'white'
+6.1890 	EXP 	blk1: color = 'white'
+6.1890 	EXP 	blk2: fillColor = 'red'
+6.1890 	EXP 	blk2: lineColor = 'red'
+6.1890 	EXP 	blk2: color = 'red'
+6.4064 	DATA 	Mouse: Left button down, pos=(692,500)
+6.5231 	DATA 	Mouse:  Left button up, pos=(692,500)
+6.6896 	EXP 	blk2: fillColor = 'white'
+6.6896 	EXP 	blk2: lineColor = 'white'
+6.6896 	EXP 	blk2: color = 'white'
+6.6896 	EXP 	blk3: fillColor = 'red'
+6.6896 	EXP 	blk3: lineColor = 'red'
+6.6896 	EXP 	blk3: color = 'red'
+6.9736 	DATA 	Mouse: Left button down, pos=(532,938)
+7.0904 	DATA 	Mouse:  Left button up, pos=(532,938)
+7.1899 	EXP 	blk3: fillColor = 'white'
+7.1899 	EXP 	blk3: lineColor = 'white'
+7.1899 	EXP 	blk3: color = 'white'
+7.1899 	EXP 	blk4: fillColor = 'red'
+7.1899 	EXP 	blk4: lineColor = 'red'
+7.1899 	EXP 	blk4: color = 'red'
+7.6905 	EXP 	blk4: fillColor = 'white'
+7.6905 	EXP 	blk4: lineColor = 'white'
+7.6905 	EXP 	blk4: color = 'white'
+7.6905 	EXP 	blk5: fillColor = 'red'
+7.6905 	EXP 	blk5: lineColor = 'red'
+7.6905 	EXP 	blk5: color = 'red'
+8.1910 	EXP 	blk5: fillColor = 'white'
+8.1910 	EXP 	blk5: lineColor = 'white'
+8.1910 	EXP 	blk5: color = 'white'
+9.6115 	DATA 	Mouse: Left button down, pos=(506,923)
+9.7115 	DATA 	Mouse:  Left button up, pos=(506,923)
+10.0104 	DATA 	Mouse: Left button down, pos=(734,480)
+10.1612 	DATA 	Mouse:  Left button up, pos=(734,480)
+11.3965 	DATA 	Keypress: escape
+11.4388 	EXP 	window1: mouseVisible = True

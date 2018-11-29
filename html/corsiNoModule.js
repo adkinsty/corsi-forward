@@ -9,7 +9,7 @@ var psychoJS = new PsychoJS({
 
 // open window:
 psychoJS.openWindow({
-  fullscr: false,
+  fullscr: true,
   color: new util.Color([0, 0, 0]),
   units: 'height'
 });
@@ -52,7 +52,7 @@ var frameDur;
 function updateInfo() {
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
   expInfo['expName'] = expName;
-  expInfo['psychopyVersion'] = '3.0.0b8';
+  expInfo['psychopyVersion'] = '3.0.0b12';
 
   // store frame rate of monitor if we can measure it successfully
   expInfo['frameRate'] = psychoJS.window.getActualFrameRate();
@@ -447,8 +447,8 @@ function trialRoutineBegin() {
           counter = counter + 1; 
       }
       if (blocks[items].hasOwnProperty('fillColor')) {
-          blocks[items].fillColor = new Color('white');
-          blocks[items].lineColor = new Color('white');
+          blocks[items].fillColor = new util.Color('white');
+          blocks[items].lineColor = new util.Color('white');
       }
   }
   
@@ -552,8 +552,8 @@ function trialRoutineEachFrame() {
   if (!(doingResponse) && (t > nextSwitch)) {
       if (typeof currBlock != 'undefined') {
           // reset color of current block
-          currBlock.fillColor =  new Color('white');
-          currBlock.lineColor =  new Color('white');
+          currBlock.fillColor =  new util.Color('white');
+          currBlock.lineColor =  new util.Color('white');
       }
       // then change current block and make that red
       if (blkIndex >= Object.keys(blocks).length) {
@@ -561,8 +561,8 @@ function trialRoutineEachFrame() {
       } else {
           currBlockName = sequence[blkIndex];
           currBlock = blocks[currBlockName];
-          currBlock.fillColor = new Color('red');
-          currBlock.lineColor = new Color('red');
+          currBlock.fillColor = new util.Color('red');
+          currBlock.lineColor = new util.Color('red');
           // track time of this change
           nextSwitch = parseFloat(nextSwitch) + parseFloat(blockDuration);
       }
@@ -578,8 +578,8 @@ function trialRoutineEachFrame() {
   for (let blockName in mouse.clicked_name) {
       for (let eachBlock in blocks) {
           if (mouse.clicked_name[blockName] == blocks[eachBlock].name) {
-              blocks[eachBlock].fillColor = new Color('silver');
-              blocks[eachBlock].lineColor = new Color('silver');
+              blocks[eachBlock].fillColor = new util.Color('silver');
+              blocks[eachBlock].lineColor = new util.Color('silver');
           }
       }
   }

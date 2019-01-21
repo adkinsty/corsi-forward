@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v3.0.0b12),
-    on November 29, 2018, at 12:39
+    on November 29, 2018, at 14:19
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -225,6 +225,9 @@ if thisTrial != None:
         exec('{} = thisTrial[paramName]'.format(paramName))
 
 for thisTrial in trials:
+    print(type(thisTrial))
+    print(thisTrial['sequence'][0][:2])
+    sys.exit()
     currentLoop = trials
     # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
     if thisTrial != None:

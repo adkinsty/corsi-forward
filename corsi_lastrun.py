@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v3.0.0b12),
-    on November 29, 2018, at 14:19
+This experiment was created using PsychoPy3 Experiment Builder (v3.0.0b8),
+    on November 29, 2018, at 11:53
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,7 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-psychopyVersion = '3.0.0b12'
+psychopyVersion = '3.0.0b8'
 expName = 'corsi'  # from the Builder filename that created this script
 expInfo = {'session': '001', 'participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
@@ -42,7 +42,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\lpzdb\\pavloviaDemos\\corsi\\corsi.py',
+    originPath='C:\\Users\\lpzdb\\pavloviaDemos\\corsi\\corsi_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -225,9 +225,6 @@ if thisTrial != None:
         exec('{} = thisTrial[paramName]'.format(paramName))
 
 for thisTrial in trials:
-    print(type(thisTrial))
-    print(thisTrial['sequence'][0][:2])
-    sys.exit()
     currentLoop = trials
     # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
     if thisTrial != None:
@@ -381,12 +378,6 @@ for thisTrial in trials:
             if buttons != prevButtonState:  # button state changed?
                 prevButtonState = buttons
                 if sum(buttons) > 0:  # state changed to a new click
-                    # check if the mouse was inside our 'clickable' objects
-                    gotValidClick = False
-                    for obj in [blk1, blk2, blk3, blk4, blk5]:
-                        if obj.contains(mouse):
-                            gotValidClick = True
-                            mouse.clicked_name.append(obj.name)
                     x, y = mouse.getPos()
                     mouse.x.append(x)
                     mouse.y.append(y)
@@ -395,6 +386,14 @@ for thisTrial in trials:
                     mouse.midButton.append(buttons[1])
                     mouse.rightButton.append(buttons[2])
                     mouse.time.append(mouse.mouseClock.getTime())
+                    # check if the mouse was inside our 'clickable' objects
+                    gotValidClick = False
+                    for obj in [blk1, blk2, blk3, blk4, blk5]:
+                        if obj.contains(mouse):
+                            gotValidClick = True
+                            mouse.clicked_name.append(obj.name)
+                    if gotValidClick:  # abort routine on response
+                        continueRoutine = False
         if not doingResponse and t > nextSwitch:
             if currBlock is not None:
                 #reset color of current block
@@ -442,13 +441,13 @@ for thisTrial in trials:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # store data for trials (TrialHandler)
-    trials.addData('mouse.x', mouse.x)
-    trials.addData('mouse.y', mouse.y)
-    trials.addData('mouse.leftButton', mouse.leftButton)
-    trials.addData('mouse.midButton', mouse.midButton)
-    trials.addData('mouse.rightButton', mouse.rightButton)
-    trials.addData('mouse.time', mouse.time)
-    trials.addData('mouse.clicked_name', mouse.clicked_name)
+    if len(mouse.x): trials.addData('mouse.x', mouse.x[0])
+    if len(mouse.y): trials.addData('mouse.y', mouse.y[0])
+    if len(mouse.leftButton): trials.addData('mouse.leftButton', mouse.leftButton[0])
+    if len(mouse.midButton): trials.addData('mouse.midButton', mouse.midButton[0])
+    if len(mouse.rightButton): trials.addData('mouse.rightButton', mouse.rightButton[0])
+    if len(mouse.time): trials.addData('mouse.time', mouse.time[0])
+    if len(mouse.clicked_name): trials.addData('mouse.clicked_name', mouse.clicked_name[0])
     
     # the Routine "trial" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()

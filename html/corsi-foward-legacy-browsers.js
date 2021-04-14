@@ -17,7 +17,7 @@ psychoJS.openWindow({
 
 // store info about the experiment session:
 let expName = 'corsi-foward';  // from the Builder filename that created this script
-let expInfo = {'session': '001', 'participant': ''};
+let expInfo = {'participant': ''};
 
 // Start code blocks for 'Before Experiment'
 // schedule the experiment:
